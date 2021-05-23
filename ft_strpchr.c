@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strpchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:52:22 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/23 18:07:16 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/21 15:47:33 by sfournie          #+#    #+#             */
+/*   Updated: 2021/05/23 14:23:33 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+size_t	ft_strpchr(const char *s, int c)
 {
-	int		i;
-	size_t	size;
-	char	*str;
+	int	i;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
+	if (!*s && c)
+		return (0);
 	i = 0;
-	size = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(sizeof(char) * size);
-	if (str == NULL)
-		return (NULL);
-	while (*s1)
-		str[i++] = *s1++;
-	while (*s2)
-		str[i++] = *s2++;
-	str[i] = '\0';
-	return (str);
+	while (i <= (int)ft_strlen(s))
+	{
+		if (s[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
 }
