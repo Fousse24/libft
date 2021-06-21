@@ -6,13 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:55:28 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/17 13:54:17 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/06/21 11:46:49 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(unsigned char c, int fd)
 {
 	if (ft_isascii(c) && fd >= 0 && fd <= 2)
 		write(fd, &c, 1);

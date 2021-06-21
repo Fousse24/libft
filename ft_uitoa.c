@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/06/18 18:51:01 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/05/27 19:11:14 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,22 @@ static int	ft_countdigit(long n)
 	return (count);
 }
 
-char	*ft_itoa(int n)
+char	*ft_uitoa(unsigned int n)
 {
 	char	*num;
 	int		count;
-	long	nl;
 
-	nl = n;
-	count = ft_countdigit(nl);
+	count = ft_countdigit(n);
 	num = (char *)malloc(sizeof(char) * (count + 1));
 	if (num == NULL)
 		return (NULL);
-	if (nl < 0)
-	{
-		nl *= -1;
-		num[0] = '-';
-	}
 	num[count] = '\0';
 	if (n == 0)
 		num[0] = '0';
-	while ((nl / 10) > 0 || (nl % 10) != 0)
+	while ((n / 10) > 0 || (n % 10) != 0)
 	{
-		num[--count] = (nl % 10) + '0';
-		nl = nl / 10;
+		num[--count] = (n % 10) + '0';
+		n = n / 10;
 	}
 	return (num);
 }

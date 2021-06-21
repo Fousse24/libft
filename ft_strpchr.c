@@ -6,18 +6,18 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:47:33 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/23 14:23:33 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/06/21 11:50:34 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-size_t	ft_strpchr(const char *s, int c)
+int	ft_strpchr(const char *s, int c)
 {
 	int	i;
 
 	if (!*s && c)
-		return (0);
+		return (-1);
 	i = 0;
 	while (i <= (int)ft_strlen(s))
 	{
