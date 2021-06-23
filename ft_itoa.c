@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/06/18 18:51:01 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/06/22 17:35:11 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,14 @@ char	*ft_itoa(int n)
 		return (NULL);
 	if (nl < 0)
 	{
+		
 		nl *= -1;
 		num[0] = '-';
 	}
 	num[count] = '\0';
 	if (n == 0)
 		num[0] = '0';
-	while ((nl / 10) > 0 || (nl % 10) != 0)
+	while ((nl / 10) != 0 || (nl % 10) != 0)
 	{
 		num[--count] = (nl % 10) + '0';
 		nl = nl / 10;
