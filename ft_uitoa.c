@@ -6,14 +6,14 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/27 19:11:14 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:07:11 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 #include	<stdio.h>
 
-static int	ft_countdigit(long n)
+static int	ft_countdigit(unsigned long long int n)
 {
 	int	count;
 
@@ -33,7 +33,7 @@ static int	ft_countdigit(long n)
 	return (count);
 }
 
-char	*ft_uitoa(unsigned int n)
+char	*ft_uitoa(unsigned long long int n)
 {
 	char	*num;
 	int		count;
