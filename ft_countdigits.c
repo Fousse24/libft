@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_countdigits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/07/29 14:25:05 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/07/29 14:40:16 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-char	*ft_itoa(int n)
+int	ft_countdigits(long long int n)
 {
-	char	*num;
-	int		count;
-	long	nl;
+	int	count;
 
-	nl = n;
-	count = ft_countdigits(nl);
-	num = (char *)malloc(sizeof(char) * (count + 1));
-	if (num == NULL)
-		return (NULL);
-	if (nl < 0)
-	{
-		nl *= -1;
-		num[0] = '-';
-	}
-	num[count] = '\0';
+	count = 0;
 	if (n == 0)
-		num[0] = '0';
-	while ((nl / 10) != 0 || (nl % 10) != 0)
+		return (1);
+	if (n < 0)
 	{
-		num[--count] = (nl % 10) + '0';
-		nl = nl / 10;
+		count++;
+		n *= -1;
 	}
-	return (num);
+	while ((n / 10) > 0 || (n % 10) != 0)
+	{
+		n = n / 10;
+		count++;
+	}
+	return (count);
 }

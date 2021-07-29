@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_atod.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/07/29 14:25:05 by sfournie         ###   ########.fr       */
+/*   Created: 2021/07/29 13:58:51 by sfournie          #+#    #+#             */
+/*   Updated: 2021/07/29 15:35:08 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-char	*ft_itoa(int n)
+double	ft_atod(const char *str)
 {
-	char	*num;
-	int		count;
-	long	nl;
+	long double	num;
+	long double	decimal;
+	double		dec_multi;
+	int			count;
 
-	nl = n;
-	count = ft_countdigits(nl);
-	num = (char *)malloc(sizeof(char) * (count + 1));
-	if (num == NULL)
-		return (NULL);
-	if (nl < 0)
+	if (str == NULL || *str == '\0')
+		return (0);
+	num = ft_atoi(str);
+	count = ft_countdigits(num);
+	str = str + count;
+	if (*str && *str == '.')
 	{
-		nl *= -1;
-		num[0] = '-';
-	}
-	num[count] = '\0';
-	if (n == 0)
-		num[0] = '0';
-	while ((nl / 10) != 0 || (nl % 10) != 0)
-	{
-		num[--count] = (nl % 10) + '0';
-		nl = nl / 10;
+		decimal = ft_atoi(++str);
+		count = ft_countdigits(decimal);
+		dec_multi = 1;
+		while (count-- > 0)
+			dec_multi *= 10;
+		num += decimal / dec_multi;
+		printf("\nLe d : %Lf\n", decimal / dec_multi);
 	}
 	return (num);
 }
