@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 13:58:51 by sfournie          #+#    #+#             */
-/*   Updated: 2021/07/29 15:35:08 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/07/30 20:21:41 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ double	ft_atod(const char *str)
 		while (count-- > 0)
 			dec_multi *= 10;
 		num += decimal / dec_multi;
-		printf("\nLe d : %Lf\n", decimal / dec_multi);
 	}
 	return (num);
 }
