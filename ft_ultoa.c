@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countdigits.c                                   :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 10:21:17 by sfournie          #+#    #+#             */
-/*   Updated: 2021/08/09 10:26:18 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
+/*   Updated: 2021/08/09 10:12:06 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
+#include	<stdio.h>
 
-int	ft_countdigits(unsigned long long int n)
+static int	ft_countdigit(unsigned long long int n)
 {
 	int	count;
 
@@ -25,4 +26,24 @@ int	ft_countdigits(unsigned long long int n)
 		count++;
 	}
 	return (count);
+}
+
+char	*ft_ultoa(unsigned long long int n)
+{
+	char	*num;
+	int		count;
+
+	count = ft_countdigit(n);
+	num = (char *)malloc(sizeof(char) * (count + 1));
+	if (num == NULL)
+		return (NULL);
+	num[count] = '\0';
+	if (n == 0)
+		num[0] = '0';
+	while ((n / 10) > 0 || (n % 10) != 0)
+	{
+		num[--count] = (n % 10) + '0';
+		n = n / 10;
+	}
+	return (num);
 }
