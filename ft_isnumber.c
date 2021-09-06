@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isnumber.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 13:08:52 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/06 17:08:00 by sfournie         ###   ########.fr       */
+/*   Created: 2021/08/16 14:47:56 by sfournie          #+#    #+#             */
+/*   Updated: 2021/09/03 20:34:06 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_isnumber(char *s)
 {
-	int		neg;
-	long	number;
+	int	i;
 
-	neg = 1;
-	number = 0;
-	while (*nptr && ((*nptr >= 9 && *nptr <= 13) || *nptr == 32))
-		nptr++;
-	if (*nptr == 45 || *nptr == 43)
+	if (s == NULL)
+		return (0);
+	i = -1;
+	if (s[0] == '-' || s[0] == '+')
+		i++;
+	while (s[++i])
 	{
-		if (*nptr == 45)
-			neg *= -1;
-		nptr++;
-	}
-	while (*nptr && ft_isdigit(*nptr) == 1)
-	{
-		number = number * 10 + (*nptr - 48);
-		nptr++;
-		if ((number * neg) > INT_MAX)
-			return (0);
-		if ((number * neg) < INT_MIN)
+		if (!ft_isdigit(s[i]))
 			return (0);
 	}
-	return (number * neg);
+	return (1);
 }

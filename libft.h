@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 08:44:19 by sfournie          #+#    #+#             */
-/*   Updated: 2021/08/09 11:17:06 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/08/23 16:58:57 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
+int		ft_isnumber(char *s);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
@@ -53,7 +54,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 char	*ft_itoa(int n);
 char	*ft_uitoa(unsigned long long int n);
 char	*ft_ultoa(unsigned long long int n);
-int		ft_countdigits(unsigned long long int n);
+int		ft_countdigits(long long int n);
 char	*ft_llitoa(long long int n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);

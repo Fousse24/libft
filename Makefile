@@ -6,7 +6,7 @@
 #    By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 10:07:12 by sfournie          #+#    #+#              #
-#    Updated: 2021/08/09 11:17:16 by sfournie         ###   ########.fr        #
+#    Updated: 2021/08/16 14:48:39 by sfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
 		ft_lstmap.c ft_strpchr.c ft_uitoa.c ft_llitoa.c ft_atod.c \
-		ft_countdigits.c ft_ultoa.c ft_nbrtobase.c \
+		ft_countdigits.c ft_ultoa.c ft_nbrtobase.c ft_isnumber.c\
 
 OBJS	= $(patsubst %.c,%.o,$(SRCS))
 

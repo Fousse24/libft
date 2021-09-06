@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:06:24 by sfournie          #+#    #+#             */
-/*   Updated: 2021/08/09 11:20:50 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/08/23 16:56:16 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ static int	ft_validbase(char *base)
 	return (1);
 }
 
-static int	ft_convert(char **dst, unsigned long nbr, char *base, int size)
+static int	ft_convert(char *dst, unsigned long nbr, char *base, int size)
 {
 	int	i;
 
 	i = 0;
 	if (nbr / size != 0)
 		i = ft_convert(dst, nbr / size, base, size);
-	(*dst)[i] = base[(nbr % size)];
+	dst[i] = base[(nbr % size)];
 	return (i + 1);
 }
 
@@ -65,6 +65,6 @@ char	*ft_nbrtobase(unsigned long nbr, char *base)
 	ft_memset(ptr, '\0', size + 1);
 	if (!ft_validbase(base))
 		return (NULL);
-	ft_convert(&ptr, nbr, base, b_size);
+	ft_convert(ptr, nbr, base, b_size);
 	return (ptr);
 }
