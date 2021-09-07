@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 08:44:19 by sfournie          #+#    #+#             */
-/*   Updated: 2021/08/23 16:58:57 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/06 17:55:12 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+int		ft_power(int n, int ex);
 int		ft_atoi(const char *nptr);
 double	ft_atod(const char *str);
 char	*ft_nbrtobase(unsigned long nbr, char *base);
