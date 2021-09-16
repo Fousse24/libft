@@ -6,11 +6,11 @@
 #    By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 10:07:12 by sfournie          #+#    #+#              #
-#    Updated: 2021/09/06 17:59:54 by sfournie         ###   ########.fr        #
+#    Updated: 2021/09/16 16:20:58 by sfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		= gcc
+CC		= @gcc
 CFLAGS	= -Werror -Wall -Wextra -g
 
 NAME	= libft.a
@@ -33,15 +33,16 @@ OBJS	= $(patsubst %.c,%.o,$(SRCS))
 HEAD	= libft.h
 
 $(NAME) : $(HEAD) $(OBJS)
-		ar crs $(NAME) $(OBJS)
+		@ar crs $(NAME) $(OBJS)
+		# $(shell echo "libft library created")
 
 all		: $(NAME)
 
 clean	:
-		rm -rf $(OBJS)
+		@rm -rf $(OBJS)
 
 fclean	: clean
-		rm -rf $(NAME)
+		@rm -rf $(NAME)
 
 re		: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:25:08 by sfournie          #+#    #+#             */
-/*   Updated: 2021/06/11 18:38:22 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/16 14:59:58 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t	count;
 
 	count = 0;
-	while (*s)
+	while (s != NULL && *s)
 	{
 		s++;
 		count++;

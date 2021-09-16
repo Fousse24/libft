@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 10:55:28 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/17 13:41:37 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/11 20:12:30 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_putstr_fd(char *s, int fd)
 	if (fd >= 0 && fd <= 2)
 	{
 		while (*s)
-			ft_putchar_fd(*s++, fd);
+			ft_putchar_fd(*(s++), fd);
 	}
 }
