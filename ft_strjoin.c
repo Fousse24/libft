@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 15:52:22 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/11 19:29:19 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:43:31 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Create a new string by joining (s1) and (s2).
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		i;

@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 14:22:45 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/11 14:25:38 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:46:40 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Compare (n) characters in both strings. Return 0 if equal.
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	if (n <= 0)

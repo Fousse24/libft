@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 08:44:19 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:38:07 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:49:21 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int		ft_isnumber(char *s);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
 
 // Number conversions
 char	*ft_itoa(int n);
@@ -67,6 +65,8 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int		ft_toupper(int c);
+int		ft_tolower(int c);
 
 // Memory management
 void	*ft_calloc(size_t num, size_t size);

@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 14:25:09 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/11 15:53:19 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:45:51 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Return the address of the last occurence of (c) in (s);
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;

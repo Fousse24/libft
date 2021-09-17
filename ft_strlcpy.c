@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:46:23 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/13 14:24:03 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:41:57 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Copy (size) characters from (src) to (dst). Return the size of (src) or 0
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	int	i;

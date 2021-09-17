@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 16:20:49 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/17 13:47:24 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:47:26 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static size_t	ft_match(const char c, const char *set)
 {
 	while (*set)
 	{
-		if ((unsigned char)*set++ == (unsigned char)c)
+		if ((unsigned char)*(set++) == (unsigned char)c)
 			return (1);
 	}
 	return (0);

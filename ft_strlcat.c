@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:58:42 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/16 16:45:45 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:42:24 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Concatenate (size) characters from (src) to (dst).
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	int		i;

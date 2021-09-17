@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 12:54:31 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/30 17:59:28 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:48:55 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Create a new string. Copies (len) characters of s[start] into it.
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*str;

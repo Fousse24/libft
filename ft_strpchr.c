@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 15:47:33 by sfournie          #+#    #+#             */
-/*   Updated: 2021/06/21 11:50:34 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:45:22 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Return index number of the first occurence of (c) in (s), or -1.
 int	ft_strpchr(const char *s, int c)
 {
 	int	i;

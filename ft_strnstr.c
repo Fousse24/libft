@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 14:22:45 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/11 14:26:16 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:44:41 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Search for (s2) in (s1) in the (len) first characters for (s1)
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	unsigned int	i;
