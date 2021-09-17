@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 13:08:52 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/06 17:08:00 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:36:49 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// String to Integer. Return 0 if above/below integer limits.
 int	ft_atoi(const char *nptr)
 {
 	int		neg;

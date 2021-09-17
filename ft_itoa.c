@@ -6,12 +6,13 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/08/23 20:41:51 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 19:00:02 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
+// Int to Str. Use its own countdigits to handle negatives.
 char	*ft_itoa(int n)
 {
 	char	*num;
@@ -19,7 +20,7 @@ char	*ft_itoa(int n)
 	long	nl;
 
 	nl = n;
-	count = ft_countdigits(nl);
+	count = ft_countminus(nl);
 	num = (char *)malloc(sizeof(char) * (count + 1));
 	if (num == NULL)
 		return (NULL);

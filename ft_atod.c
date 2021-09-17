@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 13:58:51 by sfournie          #+#    #+#             */
-/*   Updated: 2021/07/30 22:18:28 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:37:45 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	ft_decimal(const char *str, long double *num)
 	*num += decimal / dec_multi;
 }
 
+// String to Double. Can't handle number or decimal above Integer's limits
 double	ft_atod(const char *str)
 {
 	long double	num;

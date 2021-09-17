@@ -6,34 +6,12 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/12 12:53:34 by sfournie          #+#    #+#             */
-/*   Updated: 2021/06/23 19:11:40 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/09/17 18:58:47 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 #include	<stdio.h>
-
-static int	ft_countdigit(long long int n)
-{
-	int	count;
-
-	count = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		if (n == LONG_MIN)
-			n += 1;
-		count++;
-		n *= -1;
-	}
-	while ((n / 10) > 0 || (n % 10) != 0)
-	{
-		n = n / 10;
-		count++;
-	}
-	return (count);
-}
 
 static void	ft_fixminus(long long int *n, char *num, int count)
 {
@@ -53,7 +31,7 @@ char	*ft_llitoa(long long int n)
 	long long int	nl;
 
 	nl = n;
-	count = ft_countdigit(nl);
+	count = ft_countminus(nl);
 	num = (char *)malloc(sizeof(char) * (count + 1));
 	if (num == NULL)
 		return (NULL);
