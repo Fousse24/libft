@@ -6,7 +6,7 @@
 #    By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/10 10:07:12 by sfournie          #+#    #+#              #
-#    Updated: 2021/09/17 19:37:56 by sfournie         ###   ########.fr        #
+#    Updated: 2021/10/05 17:41:48 by sfournie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,14 @@ CFLAGS	= -Werror -Wall -Wextra -g
 
 NAME	= libft.a
 
-SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+DIR_S	= src
+DIR_O	= obj
+DIR_I	= include
+
+_HEAD	= libft.h
+HEAD	= $(patsubst %,$(DIR_I)/%,$(_HEAD))
+
+_SRC	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_toupper.c ft_tolower.c ft_atoi.c ft_strlen.c ft_strncmp.c \
 		ft_strnstr.c ft_strrchr.c ft_strchr.c ft_strlcpy.c ft_strlcat.c \
 		ft_strdup.c ft_calloc.c ft_bzero.c ft_memset.c ft_memmove.c \
@@ -27,23 +34,28 @@ SRCS	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 		ft_lstmap.c ft_strpchr.c ft_uitoa.c ft_llitoa.c ft_atod.c \
 		ft_countdigits.c ft_ultoa.c ft_nbrtobase.c ft_isnumber.c \
 		ft_power.c ft_countminus.c ft_free.c ft_free_2array.c
+SRC		= $(patsubst %,$(DIR_S)/%,$(_SRC))
 
-OBJS	= $(patsubst %.c,%.o,$(SRCS))
+_OBJ	= $(_SRC:.c=.o)
+OBJ		= $(patsubst %,$(DIR_O)/%,$(_OBJ))
 
-HEAD	= libft.h
-
-$(NAME) : $(HEAD) $(OBJS)
-		@ar crs $(NAME) $(OBJS)
-		# $(shell echo "libft library created")
+IS_COMP	:=
+$(DIR_O)/%.o :  $(DIR_S)/%.c
+		@$(or $(IS_COMP),$(eval IS_COMP := :)echo "# Compiling libft objects files...")
+		@$(CC) $(CFLAGS)  -I$(DIR_I)/ -I$(LFT_D)/ -c $< -o $@
 
 all		: $(NAME)
 
+$(NAME) : $(HEAD) $(OBJ)
+		@ar crs $(NAME) $(OBJ)
+		# $(shell echo "libft library created")
+
 clean	:
-		@rm -rf $(OBJS)
+		@rm -rf $(OBJ)
 
 fclean	: clean
 		@rm -rf $(NAME)
 
 re		: fclean all
 
-.PHONY	: clean all re fclean bonus
+.PHONY		: clean all re fclean bonus
