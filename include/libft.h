@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 08:44:19 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:49:21 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/10/05 19:40:50 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include	<stdio.h>
+# define GNL_BUF_SIZE 40
 
 typedef struct s_list
 {
@@ -23,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-/*		Functions		 */
+/* Functions */
 // Variable types
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -59,6 +60,7 @@ int		ft_strpchr(const char *s, int c);
 // String manipulations
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+char	*ft_strappend(char *dst, const char *src, int len);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -77,8 +79,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
-void	ft_free(void *ptr);
-void	ft_free_2array(void **ptr);
+void	*ft_free(void *ptr);
+void	*ft_free_2array(void **ptr);
 
 // Printing
 void	ft_putchar_fd(unsigned char c, int fd);
@@ -96,5 +98,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// File management
+char	*ft_get_next_line(int fd);
+/* End functions */
 
 #endif

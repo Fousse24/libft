@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:52:22 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:43:31 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/11 15:58:42 by sfournie          #+#    #+#             */
+/*   Updated: 2021/10/07 14:48:36 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Create a new string by joining (s1) and (s2).
-char	*ft_strjoin(char const *s1, char const *s2)
+// Return a string with the content of dst and len characters from src. Free dst.
+char	*ft_strappend(char *dst, const char *src, int len)
 {
-	int		i;
-	size_t	size;
 	char	*str;
+	int		i;
+	int		j;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
 	i = 0;
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = (char *)malloc(sizeof(char) * size);
-	if (str == NULL)
+	j = 0;
+	if (dst == NULL)
 		return (NULL);
-	while (*s1)
-		str[i++] = *(s1++);
-	while (*s2)
-		str[i++] = *(s2++);
+	if (len > (int)ft_strlen(src))
+		len = ft_strlen(src);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(dst) + len + 1));
+	while (dst[i])
+	{
+		str[i] = dst[i];
+		i++;
+	}
+	while (src && src[j] && j < len)
+	{
+		str[i++] = src[j++];
+	}
 	str[i] = '\0';
+	free(dst);
 	return (str);
 }
