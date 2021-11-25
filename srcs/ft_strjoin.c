@@ -1,37 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 12:54:31 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:48:55 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/13 15:52:22 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:48:11 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Create a new string. Copies (len) characters of s[start] into it.
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+/*
+*	Create a new string by joining $s1 and $s2.
+*	if free1/free2 are set to anything other than 0,
+*	str1 or/and str2 will be freed.
+*/
+char	*ft_strjoin(char const *s1, char const *s2, int f1, int f2)
 {
-	char	*str;
-	size_t	i;
+	int		i;
 	size_t	size;
+	char	*str;
 
-	if (s == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
 	i = 0;
-	size = ft_strlen(s);
-	if (start >= (unsigned int)size || !s)
-		len = 0;
-	else if (size < (start + len))
-		len = size - start;
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	size = ft_strlen(s1) + ft_strlen(s2) + 1;
+	str = (char *)malloc(sizeof(char) * size);
 	if (str == NULL)
 		return (NULL);
-	while (i < len)
-		str[i++] = s[start++];
+	while (s1 && *s1)
+		str[i++] = *(s1++);
+	while (s2 && *s2)
+		str[i++] = *(s2++);
+	if (f1)
+		ft_free((void *)s1);
+	if (f2)
+		ft_free((void *)s2);
 	str[i] = '\0';
 	return (str);
 }

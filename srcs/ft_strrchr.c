@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 10:19:03 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/13 16:18:30 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/11 14:25:09 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:51:13 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+// Return the address of the last occurence of (c) in (s);
+char	*ft_strrchr(const char *s, int c)
 {
-	const unsigned char	*str;
-	void				*ptr;
-	int					i;
+	int	i;
 
-	str = s;
-	i = -1;
-	while (++i < (int)n)
+	if (!s || (!*s && c))
+		return (0);
+	i = ft_strlen(s);
+	while (i >= 0)
 	{
-		if (str[i] == (unsigned char)c)
-		{
-			ptr = (void *)&str[i];
-			return (ptr);
-		}
+		if (s[i] == c)
+			return ((char *)&s[i]);
+		i--;
 	}
-	return (NULL);
+	return (0);
 }

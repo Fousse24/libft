@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 15:52:22 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:43:31 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/13 12:54:31 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:52:31 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Create a new string by joining (s1) and (s2).
-char	*ft_strjoin(char const *s1, char const *s2)
+// Malloc a new string. Copies $len$ characters of $s[start] into it.
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	size_t	size;
 	char	*str;
+	size_t	i;
+	size_t	size;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s == NULL)
 		return (NULL);
 	i = 0;
-	size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = (char *)malloc(sizeof(char) * size);
+	size = ft_strlen(s);
+	if (start >= (unsigned int)size || !s)
+		len = 0;
+	else if (size < (start + len))
+		len = size - start;
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	while (*s1)
-		str[i++] = *(s1++);
-	while (*s2)
-		str[i++] = *(s2++);
+	while (i < len)
+		str[i++] = s[start++];
 	str[i] = '\0';
 	return (str);
 }

@@ -6,22 +6,11 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/14 15:40:51 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/27 17:45:12 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:32:46 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
-
-static void	*ft_freesplit(char **s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != NULL)
-		free(s[i++]);
-	free(s);
-	return (NULL);
-}
 
 static size_t	ft_countwords(char const *s, char delimiter)
 {
@@ -94,7 +83,7 @@ char	**ft_split(char const *s, char c)
 		{
 			split[index] = ft_moveword(s, &pos, c);
 			if (split[index++] == NULL)
-				return (ft_freesplit(split));
+				return (ft_free_split(split));
 		}
 	}
 	split[index] = NULL;

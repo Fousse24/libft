@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/09 10:06:24 by sfournie          #+#    #+#             */
-/*   Updated: 2021/08/23 16:56:16 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:44:17 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,15 @@ static int	ft_convert(char *dst, unsigned long nbr, char *base, int size)
 	return (i + 1);
 }
 
+// Convert $nbr into a malloced string to the specified $base 
 char	*ft_nbrtobase(unsigned long nbr, char *base)
 {
 	int		b_size;
 	int		size;
 	char	*ptr;
 
+	if (base == NULL)
+		return (NULL);
 	b_size = ft_strlen(base);
 	size = (ft_countdigits(nbr) * 10 / b_size) + 1;
 	if (10 % b_size == 0)

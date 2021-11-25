@@ -6,7 +6,7 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/05 17:42:57 by sfournie          #+#    #+#             */
-/*   Updated: 2021/10/05 20:01:27 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/11/24 16:22:51 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,18 @@ static int	ft_resolve_line(char **buf, char **line, int fd)
 	{
 		if ((*buf)[i] == '\n')
 		{
-			*line = ft_strappend(*line, *buf, i + 1);
+			*line = ft_strappend(*line, *buf, i + 1, 1);
 			ft_strrep(*buf, &(*buf)[i + 1]);
 			return (1);
 		}
 		if (!(*buf)[++i])
 		{
-			*line = ft_strappend(*line, *buf, i);
+			*line = ft_strappend(*line, *buf, i, 1);
 			if (ft_read_nl(buf, fd) < 0)
 				return (0);
 		}
 	}
-	return (1);	
+	return (1);
 }
 
 char	*ft_get_next_line(int fd)

@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_free_array.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 14:25:09 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:46:09 by sfournie         ###   ########.fr       */
+/*   Created: 2021/09/17 19:21:45 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 17:59:41 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Return the address of the first occurence of (c) in (s);
-char	*ft_strchr(const char *s, int c)
+void	*ft_free_array(void **ptr, void *(f)(void *))
 {
 	int	i;
 
-	if (!*s && c)
-		return (0);
 	i = 0;
-	while (i <= (int)ft_strlen(s))
-	{
-		if (s[i] == c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	return (0);
+	if (ptr == NULL)
+		return (NULL);
+	if (ptr != NULL && ptr[i] != NULL)
+		ft_array_clear(ptr, f);
+	ft_free(ptr);
+	return (NULL);
 }

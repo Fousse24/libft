@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_free_split.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/17 14:24:55 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/30 16:34:53 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/14 15:40:51 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:32:58 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	*ft_free_split(char **split)
 {
-	if (new != NULL)
-	{
-		if (*lst == NULL)
-			*lst = new;
-		else
-			ft_lstlast(*lst)->next = new;
-	}
+	int	i;
+
+	i = 0;
+	while (split && split[i] != NULL)
+		free(split[i++]);
+	free(split);
+	return (NULL);
 }

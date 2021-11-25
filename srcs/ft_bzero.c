@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/17 19:34:25 by sfournie          #+#    #+#             */
-/*   Updated: 2021/10/05 17:45:24 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/11 18:08:52 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:34:24 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Free and set to NULL
-void	*ft_free(void *ptr)
+// Set content to '/0'
+void	ft_bzero(void *s, size_t n)
 {
-	if (ptr == NULL)
-		return (NULL);
-	free(ptr);
-	return (NULL);
+	if (s)
+		ft_memset(s, '\0', n);
 }

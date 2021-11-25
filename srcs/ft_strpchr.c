@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_countdigits.c                                   :+:      :+:    :+:   */
+/*   ft_strpchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 10:21:17 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 18:53:52 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/21 15:47:33 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:50:49 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Return the amount of digits. Negatives does not increase the count
-int	ft_countdigits(long long int n)
+// Return index number of the first occurence of (c) in (s), or -1.
+int	ft_strpchr(const char *s, int c)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
+	if (!s || (!*s && c))
+		return (-1);
+	i = 0;
+	while (i <= (int)ft_strlen(s))
 	{
-		if (n == LONG_MIN)
-			n += 1;
-		n *= -1;
+		if (s[i] == c)
+			return (i);
+		i++;
 	}
-	while ((n / 10) > 0 || (n % 10) != 0)
-	{
-		n = n / 10;
-		count++;
-	}
-	return (count);
+	return (-1);
 }

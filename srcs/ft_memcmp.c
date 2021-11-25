@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strpchr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 15:47:33 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:45:22 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/13 10:36:35 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/25 18:43:16 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Return index number of the first occurence of (c) in (s), or -1.
-int	ft_strpchr(const char *s, int c)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int	i;
+	const unsigned char	*str1;
+	const unsigned char	*str2;
 
-	if (!*s && c)
+	if (!s1 && !s2)
+		return (0);
+	else if (!s1 && s2)
 		return (-1);
-	i = 0;
-	while (i <= (int)ft_strlen(s))
+	else if (s1 && !s2)
+		return (1);
+	str1 = s1;
+	str2 = s2;
+	if (n <= 0)
+		return (0);
+	while (n-- > 0)
 	{
-		if (s[i] == c)
-			return (i);
-		i++;
+		if (*str1 != *str2)
+			return (*str1 - *str2);
+		str1++;
+		str2++;
 	}
-	return (-1);
+	return (0);
 }

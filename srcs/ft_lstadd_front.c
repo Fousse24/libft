@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/10 14:22:45 by sfournie          #+#    #+#             */
-/*   Updated: 2021/09/17 19:44:41 by sfournie         ###   ########.fr       */
+/*   Created: 2021/05/17 14:24:55 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/24 11:44:37 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Search for (s2) in (s1) in the (len) first characters for (s1)
-char	*ft_strnstr(const char *s1, const char *s2, size_t len)
+void	ft_lstadd_front(t_list **lst, t_list *new_lst)
 {
-	unsigned int	i;
-	unsigned int	j;
-	size_t			s2size;
-
-	if (!*s2)
-		return ((char *)s1);
-	i = 0;
-	j = 0;
-	s2size = ft_strlen(s2);
-	while (s1[i] && i < len)
+	if (new_lst != NULL)
 	{
-		while (s1[i + j] == s2[j] && (i + j) < len)
-		{
-			if (j == (s2size - 1))
-				return ((char *)&s1[i]);
-			j++;
-		}
-		j = 0;
-		i++;
+		new_lst->next = *lst;
+		*lst = new_lst;
 	}
-	return (0);
 }

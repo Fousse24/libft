@@ -6,14 +6,17 @@
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:58:42 by sfournie          #+#    #+#             */
-/*   Updated: 2021/10/07 14:48:36 by sfournie         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:45:45 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-// Return a string with the content of dst and len characters from src. Free dst.
-char	*ft_strappend(char *dst, const char *src, int len)
+/* 
+*	Return a string with the content of $dst and $len characters from $src.
+*	Free $dst if $f is not 0.
+*/
+char	*ft_strappend(char *dst, const char *src, int len, int f)
 {
 	char	*str;
 	int		i;
@@ -21,12 +24,10 @@ char	*ft_strappend(char *dst, const char *src, int len)
 
 	i = 0;
 	j = 0;
-	if (dst == NULL)
-		return (NULL);
 	if (len > (int)ft_strlen(src))
 		len = ft_strlen(src);
 	str = (char *)malloc(sizeof(char) * (ft_strlen(dst) + len + 1));
-	while (dst[i])
+	while (dst && dst[i])
 	{
 		str[i] = dst[i];
 		i++;
@@ -36,6 +37,7 @@ char	*ft_strappend(char *dst, const char *src, int len)
 		str[i++] = src[j++];
 	}
 	str[i] = '\0';
-	free(dst);
+	if (f)
+		ft_free(dst);
 	return (str);
 }

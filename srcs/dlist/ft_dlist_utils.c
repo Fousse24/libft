@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_dlst_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfournie <marvin@42quebec.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 10:36:35 by sfournie          #+#    #+#             */
-/*   Updated: 2021/05/13 14:24:02 by sfournie         ###   ########.fr       */
+/*   Created: 2021/11/24 16:25:11 by sfournie          #+#    #+#             */
+/*   Updated: 2021/11/24 16:25:15 by sfournie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include	"dlist.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+// Return the amount of nodes in $dlst
+int	ft_dlst_size(t_dlst *dlst)
 {
-	const unsigned char	*str1;
-	const unsigned char	*str2;
+	size_t	size;
+	t_dlst	*temp;
 
-	str1 = s1;
-	str2 = s2;
-	if (n <= 0)
-		return (0);
-	while (n-- > 0)
+	size = 0;
+	temp = dlst;
+	while (temp != 0)
 	{
-		if (*str1 != *str2)
-			return (*str1 - *str2);
-		str1++;
-		str2++;
+		temp = temp->next;
+		size++;
 	}
-	return (0);
+	return (size);
 }
